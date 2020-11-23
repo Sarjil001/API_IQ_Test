@@ -1,0 +1,37 @@
+# API_IQ_Test
+
+For connecting to SQL server add this to the appsettings.json
+
+"ConnectionStrings":
+  {
+    "QuestionConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=OnlineIQtest;Integrated Security=True"
+  }
+  
+  Please change the Data Source(server name) and Initial Catalog(database name)
+  
+  
+  
+ In Sql server management studio
+ 
+ Database OnlineIQtest 
+ Table    Questions
+
+INSERT INTO OnlineIQtest.dbo.Questions (Qid,Question,option1,option2,option3,option4,Correctans)
+
+VALUES 
+
+('1','37,34,31,28,.. Next?','29','30','25','28','25'),
+('2','Book is to Reading as Fork is to: ','drawing','writing','stirring','eating','eating'),
+('3','Find the number  8:4 as 10: ','3','7','24','5','5'),
+('4','4 people shake hands with each other. how many total handshakes?','4','6','7','8','6'),
+('5','Find the number  10:6 as 3: ','-1','1','2','3','-1'),
+('6','Library is to book as book is to ','Bookmark','Page','Cover','Picture','Page'),
+('7','Which of the following countries is currently a constitutional monarchy','Poland','Portugal','Belgium','Finland','Belgium'),
+('8','The lower number on a blood pressure reading is?','Systolic','Diastolic','HBP','Differential','Diastolic'),
+('9','Basic solutions have a PH:','Above 7','Below 7','Equal to 7','Below 6','Above 7'),
+('10','The word DEMOCRACY is derived from the Greek words','Rule & people','Vote & Freedom','Vote & power','Vote & majority','Rule & people')
+
+
+
+ 
+ 
