@@ -1,0 +1,65 @@
+﻿@model IEnumerable<IQ_Test.Models.QuestionModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Welcome to the IQ Analysis !!</h1>
+<h2>Please answer following questions</h2>
+<hr/>
+
+
+<table class="table">
+   
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qid) ) @Html.DisplayFor(modelItem => item.Question)
+            </td>
+            <td>
+                <input type="radio" id="option1" name="@Html.DisplayFor(modelItem => item.Qid)" class="rounded-bottom" value="@Html.DisplayFor(modelItem => item.option1)" />
+                @Html.DisplayFor(modelItem => item.option1)
+                <input type="radio" id="option2" name="@Html.DisplayFor(modelItem => item.Qid)" class="rounded-bottom" value="@Html.DisplayFor(modelItem => item.option2)" />
+                @Html.DisplayFor(modelItem => item.option2)
+                <input type="radio" id="option3" name="@Html.DisplayFor(modelItem => item.Qid)" class="rounded-bottom" value="@Html.DisplayFor(modelItem => item.option3)" />
+                @Html.DisplayFor(modelItem => item.option3)
+                <input type="radio" id="option4" name="@Html.DisplayFor(modelItem => item.Qid)" class="rounded-bottom" value="@Html.DisplayFor(modelItem => item.option4)" />
+                @Html.DisplayFor(modelItem => item.option4)
+            </td>            
+        </tr>
+        <tr>
+            <td>
+                <label id="correctans" name="@Html.DisplayFor(modelItem => item.Qid)" class="rounded-bottom" style="display:none;  color:forestgreen" ;><b>@Html.DisplayFor(modelItem => item.Correctans)</b></label>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<button type="button" id="butexam" class="btn-success" onclick="displayresult();">Submit</button>
+<label id="Useranswers"></label>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function()
+    {
+        $("#butexam").click(function ()
+        {
+            $(".rounded-bottom").show();
+            $(".rounded-bottom").attr("disabled", true);
+        });
+    });
+    function displayresult() {
+        document.getElementById("Useranswers").innerHTML = "";
+        var results = document.getElementsByTagName('input');
+        for (i = 0; i < results.length; i++) {
+            if (results[i].type == "radio") {
+                if (results[i].checked) {
+                    document.getElementById("Useranswers").innerHTML += "Q " + results[i].name + " )" + "The Selected Answer is " + results[i].value + "<br/>";
+                }
+            }
+        }
+    }
+</script>
